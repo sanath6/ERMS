@@ -28,6 +28,9 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import connectDB from './config/db.js';
 import authRoutes from './routes/auth.js';
+import engineerRoutes from './routes/engineers.js';
+import projectRoutes from './routes//projectRoutes.js';
+import assignmentRoutes from './routes/assignmentRoutes.js';
 
 dotenv.config();
 const app = express();
@@ -35,6 +38,9 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use('/api', authRoutes);
+app.use('/api/engineers', engineerRoutes);
+app.use('/api/projects', projectRoutes);
+app.use('/api/assignments', assignmentRoutes);
 
 connectDB();
 
